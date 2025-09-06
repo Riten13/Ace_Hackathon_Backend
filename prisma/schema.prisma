@@ -18,14 +18,18 @@ model User {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   // UID received from firebase
   firebaseUID String   @unique
-  // Username for the user - must be unique.
-  username    String?  @unique
   // Name of the user
   name        String?
   // User's Email address
   email       String   @unique
   // User's Display picture link
   photoURL    String?  @default("")
+  // EQ
+  eq          Int      @default(0)
+  // EQ questions
+  eqQuestions Json?
+  // Possible Issues
+  issues      String[] @default([])
   // Created & updated times
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

@@ -6,12 +6,12 @@ import express from "express";
 import rateLimit from "express-rate-limit";;
 
 // Configure Dotenv to read environment variables
-
 dotenv.config();
 
 // Importing Routes & Middleware --------------------------------------------------------------------------------
 
 import indexRouter from "./routes/index.routes.js";
+import userRouter from "./routes/user.routes.js";
 
 // Initializing Server -------------------------------------------------------------------------------------------
 
@@ -72,6 +72,7 @@ app.get("/", (_, res) => {
 
 // Auth Routes
 app.use("/api/v1/test", indexRouter);
+app.use("/api/v1/user", userRouter);
 
 // Listening on PORT -------------------------------------------------------------------------------------------
 
